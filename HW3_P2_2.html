@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Survey Data</title>
+    <script>
+        function getParams() 
+        {
+
+            var idx = document.URL.indexOf('?');
+            var params = new Array();
+
+            if (idx != -1) 
+            {
+                var pairs = document.URL.substring(idx + 1, document.URL.length).split('&');
+                
+                for (var i = 0; i < pairs.length; i++) 
+                {
+
+                    nameVal = pairs[i].split('=');
+                    params[nameVal[0]] = nameVal[1];
+                }
+            }
+            return params;
+        }
+
+    params = getParams();
+    email = unescape(params["email"]);
+    firstname = unescape(params["firstname"]);
+    lastname = unescape(params["lastname"]);
+    state = unescape(params["state"]);
+    zipcode = unescape(params["zipCode"]);
+    heard = unescape(params["heard"]);
+
+    document.write("email = " + email + "<br>");
+    document.write("firstname = " + firstname + "<br>");
+    document.write("lastname = " + lastname + "<br>");
+    document.write("state = " + state + "<br>");
+    document.write("zipcode = " + zipcode + "<br>");
+    document.write("heard = " + heard + "<br>");
+    </script>
+</head>
+</html>
